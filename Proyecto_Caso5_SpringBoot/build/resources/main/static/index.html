@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Caso 5</title>
+    <style>body{font-family:Arial;padding:20px;background:#f5f5f5}.card{background:white;padding:20px;margin:15px 0;border-radius:12px;box-shadow:0 2px 8px #ccc}button{padding:10px 16px;margin:5px;border:none;border-radius:6px;background:#3498db;color:white;cursor:pointer;font-weight:bold}input,select{padding:9px;margin:5px;width:180px}pre{background:#eee;padding:12px;border-radius:6px;overflow:auto}</style>
+</head><body>
+<h1>✅ Caso 5 </h1>
+
+<div class="card"><h3>1. Crear Espacio</h3>
+    <input id="eNombre" value="Sala 101">
+    <input id="eCap" type="number" value="30">
+    <select id="eTipo"><option value="SALA">SALA</option><option value="AUDITORIO">AUDITORIO</option><option value="LABORATORIO">LABORATORIO</option><option value="CANCHA">CANCHA</option></select>
+    <input id="eEquipos" type="number" value="30">
+    <button onclick="crearEspacio()">Crear Espacio</button><pre id="resE"></pre>
+    <button onclick="verEspacios()">Ver Espacios</button><pre id="listaEspacios"></pre></div>
+
+<div class="card"><h3>2. Crear Usuario</h3>
+    <input id="uNombre" value="Juan"><input id="uCorreo" value="juan@uni.edu.co">
+    <select id="uRol"><option>SOLICITANTE</option><option>ADMINISTRADOR</option></select>
+    <button onclick="crearUsuario()">Crear Usuario</button><pre id="resU"></pre>
+    <button onclick="verUsuarios()">Ver Usuarios</button><pre id="listaUsuarios"></pre></div>
+
+<div class="card"><h3>3. Reserva</h3>
+    ID Espacio: <input id="espId" type="number" value="1"> ID Usuario: <input id="userId" type="number" value="1"><br>
+    <input id="fecha" type="date" value="2026-10-19"><input id="hIni" type="time" value="08:00"><input id="hFin" type="time" value="09:30"><br>
+    <input id="asist" type="number" value="15"><input id="motivo" value="Clase BD"><br>
+    <button onclick="crearReserva()" style="background:#27ae60">Reservar</button><pre id="resR"></pre>
+    <button onclick="verReservas()">Ver Reservas</button><pre id="listaReservas"></pre></div>
+
+<script>
+    async function verEspacios(){let r=await fetch('/espacios');document.getElementById('listaEspacios').innerText=JSON.stringify(await r.json(),null,2)}
+    async function verUsuarios(){let r=await fetch('/usuarios');document.getElementById('listaUsuarios').innerText=JSON.stringify(await r.json(),null,2)}
+    async function verReservas(){let r=await fetch('/reservas');document.getElementById('listaReservas').innerText=JSON.stringify(await r.json(),null,2)}
+    async function crearEspacio(){
+        let body={nombre:eNombre.value,tipo:eTipo.value,capacidad:parseInt(eCap.value),cantidadEquipos:parseInt(eEquipos.value),sonidoProfesional:false,enMantenimiento:false};
+        let r=await fetch('/espacios',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+        document.getElementById('resE').innerText=r.status+" -> "+await r.text(); if(r.ok) verEspacios();
+    }
+    async function crearUsuario(){
+        let body={nombre:uNombre.value,correo:uCorreo.value,rol:uRol.value};
+        let r=await fetch('/usuarios',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+        document.getElementById('resU').innerText=r.status+" -> "+await r.text(); if(r.ok) verUsuarios();
+    }
+    async function crearReserva(){
+        let body={
+            espacioId: parseInt(espId.value),
+            usuarioId: parseInt(userId.value),
+            fecha: fecha.value,
+            horaInicio: hIni.value,
+            horaFin: hFin.value,
+            cantidadAsistentes: parseInt(asist.value),
+            motivo: motivo.value
+        };
+        console.log(body);
+        let r=await fetch('/reservas',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+        document.getElementById('resR').innerText=r.status+" -> "+await r.text(); if(r.ok) verReservas();
+    }
+    verEspacios(); verUsuarios(); verReservas();
+</script></body></html>
