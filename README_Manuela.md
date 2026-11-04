@@ -51,5 +51,6 @@ Que se hace: Se intenta crear una nueva reserva de 9am
         assertDoesNotThrow(() -> reservaService.crear(req));
 
 Foto: 
-https://private-user-images.githubusercontent.com/265150406/692827748-85387f55-2a04-48a6-96e4-6ff67c6a9406.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTM3MTk2MTEsIm5iZiI6MTc5MzcxOTMxMSwicGF0aCI6Ii8yNjUxNTA0MDYvNjkyODI3NzQ4LTg1Mzg3ZjU1LTJhMDQtNDhhNi05NmU0LTZmZjY3YzZhOTQwNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMTAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTEwM1QxNTIxNTFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zNjY1YmE5OGE0ODEwNzM2OWIzZDE2YTcwZWJhMTBkYTc3OTA4M2ZkMDIyZDQyYWNmNDc0MjdmNDFlN2E3MjZhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.nk9K6uErUR6R2l7uN-pmZJ_Y1-XhRX3Y7xoxEIauPZk
+<img width="895" height="308" alt="694220818-bbcf7f9e-535d-4d47-bc23-80d60bee4404" src="https://github.com/user-attachments/assets/4673580e-37eb-4e10-afe7-542847c06ad4" />
+
 
