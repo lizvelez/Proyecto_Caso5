@@ -1,4 +1,4 @@
-Caso 5 - ReservaService - Pruebas 1 al 3 Integrante: Manuela Rodriguez Lopez Archivo:
+Caso 5 - ReservaService - Pruebas 4 al 6 Integrante: Manuela Rodriguez Lopez Archivo:
 src/test/java/com/proyecto/reservas/service/ReservaServiceTest.java
 
 
